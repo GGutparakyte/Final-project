@@ -15,24 +15,35 @@ const OrdersPageNavTabMyOrders = () => {
   const [inputValue, setInputValue] = React.useState('');
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex', mb: { xs: '2vh', lg: 0 } }}>
       <Box sx={{
-        minWidth: '200px',
-        minHeight: '200px',
-        backgroundImage: `url(${Lipstic})`,
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'contain',
+        minWidth: { lg: '18vw', xs: '45vw' },
+        minHeight: '10vh',
+        mr: '2vw',
       }}
-      />
+      >
+        <Box sx={{
+          minWidth: '100%',
+          minHeight: '100%',
+          backgroundImage: `url(${Lipstic})`,
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+        }}
+        />
+      </Box>
       <Box sx={{
         display: 'flex',
         flexDirection: 'column',
+        width: '50vw',
       }}
       >
         <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <Typography sx={{
             fontSize: {
               lg: '1.4vw',
+              md: '2vw',
+              sm: '3vw',
+              xs: '4vw',
             },
             fontWeight: 'bold',
             pt: 1,
@@ -44,6 +55,9 @@ const OrdersPageNavTabMyOrders = () => {
             textAlign: 'right',
             fontSize: {
               lg: '1.4vw',
+              md: '2vw',
+              sm: '3vw',
+              xs: '4vw',
             },
             fontWeight: 'bold',
             pt: 1,
@@ -55,7 +69,8 @@ const OrdersPageNavTabMyOrders = () => {
         <Box sx={{ mb: '3%', width: '78%' }}>
           <Typography sx={{
             fontSize: {
-              xs: '1vw',
+              xs: '2vh',
+              sm: '1.5vh',
             },
             color: '#605A5A',
           }}
@@ -70,14 +85,16 @@ const OrdersPageNavTabMyOrders = () => {
         <Box sx={{
           display: 'flex',
           mb: 5,
-          width: '78%',
+          justifyContent: { xs: 'space-between', lg: 'normal' },
         }}
         >
           <Box sx={{
-            display: 'flex', justifyContent: 'center', flexDirection: 'column', mr: '2%',
+            display: 'flex',
+            justifyContent: 'center',
+            flexDirection: 'column',
           }}
           >
-            <Box sx={{ alignItems: 'center', mr: '2%' }}>
+            <Box sx={{ alignItems: 'center', mr: { lg: '2%', xs: '100%' } }}>
               <Typography sx={{
                 fontSize: {
                   lg: '1.4vw',

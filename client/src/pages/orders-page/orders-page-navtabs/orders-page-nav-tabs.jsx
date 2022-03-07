@@ -4,10 +4,16 @@ import Tab from '@mui/material/Tab';
 import {
   Grid,
 } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import OrdersPageNavTabMyOrders from './orders-page-nav-tab-my-orders';
 import OrdersPageNavTabPurchaseLatter from './orders-page-nav-tab-purchase-latter';
 import TabPanel from './orders-page-tab-panel';
 
+const StyledTabPanel = styled(TabPanel)(() => ({
+  '& div': {
+    padding: 0,
+  },
+}));
 const OrderPageNavTabs = () => {
   const [value, setValue] = React.useState(0);
 
@@ -17,7 +23,7 @@ const OrderPageNavTabs = () => {
 
   return (
     <Grid item lg={7} md={12} sm={12} xs={12}>
-      <Tabs value={value} onChange={handleChange}>
+      <Tabs value={value} onChange={handleChange} sx={{ mb: 2 }}>
         <Tab
           label="MY ORDERS-LOREM IPSUM 1"
           sx={{
@@ -40,12 +46,12 @@ const OrderPageNavTabs = () => {
           }}
         />
       </Tabs>
-      <TabPanel value={value} index={0}>
+      <StyledTabPanel value={value} index={0}>
         <OrdersPageNavTabMyOrders />
-      </TabPanel>
-      <TabPanel value={value} index={1}>
+      </StyledTabPanel>
+      <StyledTabPanel value={value} index={1}>
         <OrdersPageNavTabPurchaseLatter />
-      </TabPanel>
+      </StyledTabPanel>
     </Grid>
   );
 };

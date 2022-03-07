@@ -5,7 +5,7 @@ import {
 } from '@mui/material';
 
 const OrdersPageMyOrdersColorPicker = () => (
-  <Box sx={{ display: 'flex', width: '78%' }}>
+  <Box sx={{ display: 'flex', justifyContent: { xs: 'space-between', lg: 'normal' } }}>
     <Box>
       <Typography sx={{
         fontSize: {
@@ -19,10 +19,15 @@ const OrdersPageMyOrdersColorPicker = () => (
     <Box sx={{
       borderRadius: '50%',
       backgroundColor: 'rgb(227 219 210)',
-      height: '1.8vw',
+      height: {
+        lg: '1.8vw', sm: '4vw', md: '2vw', xs: '6vw',
+      },
       margin: 0,
-      mx: '50px',
-      width: '1.8vw',
+      mx: { lg: '50px', xs: '0px' },
+      width:
+      {
+        lg: '1.8vw', sm: '4vw', md: '2vw', xs: '6vw',
+      },
     }}
     />
   </Box>
