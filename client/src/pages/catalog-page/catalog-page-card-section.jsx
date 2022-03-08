@@ -12,7 +12,7 @@ import FormButton from '../../components/partials/buttons/light-button';
 
 const StyledCardContent = styled(CardContent)(() => ({
   height: '30vh',
-  width: '21vw',
+  width: '23vw',
   position: 'absolute',
   padding: 0,
   zIndex: 99,
