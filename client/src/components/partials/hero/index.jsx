@@ -11,7 +11,7 @@ const Hero = () => (
     sx={{
       height: {
         xs: '45vh',
-        lg: '55vh',
+        lg: '45vh',
       },
       m: 'auto',
       p: 0,

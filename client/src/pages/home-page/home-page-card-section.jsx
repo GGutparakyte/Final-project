@@ -6,8 +6,11 @@ import {
   Grid,
   CardContent,
   Typography,
+  Button,
 } from '@mui/material';
 import styled from '@emotion/styled';
+import StyledNavbarMenuLink from '../../components/partials/navbar/navbar-menu-link-styled';
+import routes from '../../routing/routes';
 
 const items = [
   {
@@ -43,7 +46,7 @@ const CardSection = () => (
     mb: '1%',
   }}
   >
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex', my: '2%' }}>
       <Box sx={{
         width: { xs: '30%', md: '40%' }, display: 'flex', flexDirection: 'column', justifyContent: 'center',
       }}
@@ -87,10 +90,15 @@ const CardSection = () => (
             <StyledCardContent
               sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
             >
-              <Typography sx={{ fontSize: '1.25rem' }}>
-                {title}
-              </Typography>
+              <Button sx={{ textTransform: 'capitalize' }}>
+                <StyledNavbarMenuLink to={routes.CatalogPage}>
+                  <Typography sx={{ fontSize: '1.25rem' }}>
+                    {title}
+                  </Typography>
+                </StyledNavbarMenuLink>
+              </Button>
               <CardMedia
+                component="div"
                 sx={{
                   width: '100%',
                   height: '100%',
