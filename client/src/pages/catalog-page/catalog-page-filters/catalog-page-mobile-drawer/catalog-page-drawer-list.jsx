@@ -2,10 +2,9 @@
 import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
-import { Typography } from '@mui/material';
-import CatalogPageFilterBrand from '../catalog-page-filter-brand';
-import CatalogPageFilterColor from '../catalog-page-filter-color';
-import CatalogPageFilterCategory from '../catalog-page-filter-category';
+// import CatalogPageFilterBrand from '../catalog-page-filter-brand';
+// import CatalogPageFilterColor from '../catalog-page-filter-color';
+// import CatalogPageFilterCategory from '../catalog-page-filter-category';
 
 const DrawerList = ({ close }) => {
   const [markers, setMarker] = useState({
@@ -27,9 +26,9 @@ const DrawerList = ({ close }) => {
           sx={{ width: '100%', maxWidth: 360 }}
           component="nav"
         >
-          <CatalogPageFilterCategory />
+          {/* <CatalogPageFilterCategory />
           <CatalogPageFilterBrand />
-          <CatalogPageFilterColor />
+          <CatalogPageFilterColor /> */}
 
         </List>
       </Box>

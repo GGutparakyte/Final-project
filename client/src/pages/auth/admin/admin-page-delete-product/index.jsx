@@ -4,7 +4,7 @@ import {
 } from '@mui/material';
 import AdminPageDeleteProductCardSection from './admin-page-delete-product-card-section';
 import ApiService from '../../../../services/api-service';
-import CatalogPageFilters from '../../../catalog-page/catalog-page-filters';
+import CatalogPageFilters from '../../../catalog-page/catalog-page-filters/catalog-page-filters';
 
 const AdminPageDeleteProduct = () => {
   const [products, setProducts] = useState([]);

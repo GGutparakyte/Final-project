@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { appendUrlParams } from '../helpers/url-helpers';
 
 const instance = axios.create({
   baseURL: 'http://localhost:5000/api',
@@ -16,15 +17,6 @@ const getBrands = async () => {
   }
 };
 
-const getCategories = async () => {
-  try {
-    const response = await instance.get('/categories');
-    return response.data;
-  } catch (error) {
-    return error;
-  }
-};
-
 const getColors = async () => {
   try {
     const response = await instance.get('/colors');
@@ -33,10 +25,20 @@ const getColors = async () => {
     return error;
   }
 };
-
-const getProducts = async () => {
+const getCategories = async () => {
   try {
-    const products = await instance.get('/products/');
+    const response = await instance.get('/categories');
+    return response.data;
+  } catch (error) {
+    return error;
+  }
+};
+//  (?) optional sąlyga. gali būti products=lipstics (kategorijos id)., products=foundation
+const getProducts = async (params) => {
+  const baseUrl = 'http://localhost:5000/api/products?';
+  const generatedParams = appendUrlParams(baseUrl, params); // funkcija iš url helpers
+  try {
+    const products = await axios.get(generatedParams);
     return products.data;
   } catch (error) {
     return error;

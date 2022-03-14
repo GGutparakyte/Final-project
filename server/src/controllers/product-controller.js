@@ -1,16 +1,13 @@
 const ProductModel = require('../models/product-model');
 const ProductViewModel = require('../view-models/product-view-model');
 
-const getProductsPaginated = async (req, res) => { //!----------------------------
+const getProductsPaginated = async (req, res) => {
   const product = await ProductModel.paginate({}, {
     page: req.query.page, limit: req.query.limit, sort: { createdAt: req.query.order }, populate: ['brand', 'category', 'color', 'images']
   });
-  const products = product.docs.map(ProductDocs => new ProductViewModel(ProductDocs));//! 
-  const productCount = product.total;//! 
-  console.log(product);
-
-  res.status(200).json({ products, productCount }); //! 
-
+  const products = product.docs.map(ProductDocs => new ProductViewModel(ProductDocs));
+  const productCount = product.total;
+  res.status(200).json({ products, productCount });
 };
 
 const getProducts = async (req, res) => {
@@ -26,9 +23,6 @@ const getProducts = async (req, res) => {
 };
 
 const createProduct = async (req, res) => {
-  console.log('---------------')
-  console.log(req.body);
-  console.log('---------------')
   const { name, price, category, color, brand, images } = req.body;
   const ProductDoc = await ProductModel({
     name,
