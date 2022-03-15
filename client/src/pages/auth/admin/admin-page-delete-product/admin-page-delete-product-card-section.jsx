@@ -8,6 +8,7 @@ import {
 } from '@mui/material';
 import FormButton from '../../../../components/partials/buttons/light-button';
 import ProductService from '../../../../services/product-service';
+import StyledCategoriesContainer from '../../../../components/partials/styled-categories-container';
 
 const AdminPageDeleteProductCardSection = ({ products, categories, onDelete }) => {
   const handleProductDelete = async (id) => { // trina iš serverio
@@ -27,35 +28,7 @@ const AdminPageDeleteProductCardSection = ({ products, categories, onDelete }) =
       {
         categories?.map((category) => (
           <>
-            <Box sx={{
-              display: 'flex', mb: '2%', width: '100%',
-            }}
-            >
-              <Box sx={{
-                width: '42%', display: 'flex', flexDirection: 'column', justifyContent: 'center',
-              }}
-              >
-                <Box sx={{ height: '1px', width: '100%', backgroundColor: '#cccccc' }} />
-              </Box>
-              <Box sx={{ width: '16%', textAlign: 'center' }}>
-                <Typography
-                  sx={{
-                    fontSize: {
-                      lg: '3.6vh',
-                      sm: '3.4vh',
-                    },
-                  }}
-                >
-                  {category.title}
-                </Typography>
-              </Box>
-              <Box sx={{
-                width: '42%', display: 'flex', flexDirection: 'column', justifyContent: 'center',
-              }}
-              >
-                <Box sx={{ height: '1px', width: '100%', backgroundColor: '#cccccc' }} />
-              </Box>
-            </Box>
+            <StyledCategoriesContainer title={category.title} />
             <Grid
               container
               gap={1}

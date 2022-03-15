@@ -16,7 +16,7 @@ const AdminPageDeleteProduct = () => {
     (async () => {
       const [fetchedCategories, fetchedProducts] = await Promise.all([
         ApiService.getCategories(),
-        ApiService.getProducts(),
+        ApiService.getProducts({}),
       ]);
       setCategories(fetchedCategories);
       setProducts(fetchedProducts);
@@ -31,10 +31,14 @@ const AdminPageDeleteProduct = () => {
   return (
     <Box sx={{
       m: 'auto',
-      width: '100%',
+      width: '90%',
     }}
     >
-      <Box sx={{ mt: 10, mb: 2 }}>
+      <Box sx={{
+        mt: 10,
+        mb: 2,
+      }}
+      >
         <CatalogPageFilters />
       </Box>
       <AdminPageDeleteProductCardSection
