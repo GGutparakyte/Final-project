@@ -8,23 +8,14 @@ import Header from './header.jpg';
 
 const Hero = () => (
   <Box
-    sx={{
-      height: {
-        xs: '45vh',
-        lg: '45vh',
-      },
-      m: 'auto',
-      p: 0,
-    }}
+    sx={{ height: '45vh' }}
   >
     <BackgroundImageContainer
       sx={{
         backgroundImage: `url(${Header})`,
         display: 'flex',
-        flexDirection: 'column',
         alignItems: 'center',
         position: 'relative',
-        width: '100%',
       }}
     >
       <Box sx={{

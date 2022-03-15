@@ -5,16 +5,16 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-const StyledButton = styled(Button)(() => ({
+const StyledButton = styled(Button)(({ theme }) => ({
   height: 45,
   width: 170,
-  backgroundColor: 'rgb(230 188 150)',
+  backgroundColor: theme.palette.primary.lightPink,
   padding: 0,
   borderRadius: '50px',
   boxShadow: 'none',
   color: 'white',
   '&:hover': {
-    backgroundColor: 'rgba(187, 33, 57, 0.8)',
+    backgroundColor: theme.palette.primary.hoverLightPink,
     boxShadow: 'none',
   },
 }));

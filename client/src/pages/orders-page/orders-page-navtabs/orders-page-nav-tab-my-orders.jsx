@@ -15,9 +15,19 @@ const OrdersPageNavTabMyOrders = () => {
   const [inputValue, setInputValue] = React.useState('');
 
   return (
-    <Box sx={{ display: 'flex', mb: { xs: '2vh', lg: 0 } }}>
+    <Box sx={{
+      display: 'flex',
+      mb: {
+        xs: '2vh',
+        lg: 0,
+      },
+    }}
+    >
       <Box sx={{
-        minWidth: { lg: '18vw', xs: '45vw' },
+        minWidth: {
+          lg: '18vw',
+          xs: '45vw',
+        },
         minHeight: '10vh',
         mr: '2vw',
       }}
@@ -37,10 +47,14 @@ const OrdersPageNavTabMyOrders = () => {
         width: '50vw',
       }}
       >
-        <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Box sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+        }}
+        >
           <Typography sx={{
             fontSize: {
-              lg: '1.4vw',
+              lg: '1.6vw',
               md: '2vw',
               sm: '3vw',
               xs: '4vw',
@@ -66,11 +80,14 @@ const OrdersPageNavTabMyOrders = () => {
             29.95 €
           </Typography>
         </Box>
-        <Box sx={{ mb: '3%', width: '78%' }}>
+        <Box sx={{
+          mb: '3%',
+        }}
+        >
           <Typography sx={{
             fontSize: {
               xs: '2vh',
-              sm: '1.5vh',
+              sm: '1.9vh',
             },
             color: '#605A5A',
           }}
@@ -78,14 +95,14 @@ const OrdersPageNavTabMyOrders = () => {
             Order number: Nº 30004689714
           </Typography>
         </Box>
-        {/* COLOR PICKER  START */}
         <OrdersPageMyOrdersColorPicker />
-        {/* COLOR PICKER END */}
-        {/* QUANTITY  START */}
         <Box sx={{
           display: 'flex',
           mb: 5,
-          justifyContent: { xs: 'space-between', lg: 'normal' },
+          justifyContent: {
+            xs: 'space-between',
+            lg: 'normal',
+          },
         }}
         >
           <Box sx={{
@@ -94,10 +111,17 @@ const OrdersPageNavTabMyOrders = () => {
             flexDirection: 'column',
           }}
           >
-            <Box sx={{ alignItems: 'center', mr: { lg: '2%', xs: '100%' } }}>
+            <Box sx={{
+              alignItems: 'center',
+              mr: {
+                lg: '2%',
+                xs: '100%',
+              },
+            }}
+            >
               <Typography sx={{
                 fontSize: {
-                  lg: '1.4vw',
+                  lg: '1.2vw',
                 },
               }}
               >
@@ -122,7 +146,6 @@ const OrdersPageNavTabMyOrders = () => {
             />
           </Box>
         </Box>
-        {/* QUANTITY  END */}
         <Box sx={{ display: { lg: 'flex' }, textAlign: 'start' }}>
           <Button sx={{ pb: '2px', borderRadius: '0%' }}>
             <Typography sx={{

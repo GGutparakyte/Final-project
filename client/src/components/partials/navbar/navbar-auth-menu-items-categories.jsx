@@ -5,20 +5,20 @@ import {
   Typography,
 } from '@mui/material';
 import routes from '../../../routing/routes';
-import StyledNavbarMenuLink from './navbar-menu-link-styled';
+import StyledLink from '../styled-link';
 
 const NavbarMenuItemsCategories = () => (
   <>
     <MenuItem>
-      <StyledNavbarMenuLink to={routes.HomePage}>
+      <StyledLink to={routes.HomePage}>
         <Typography textAlign="center">Lipstic</Typography>
-      </StyledNavbarMenuLink>
+      </StyledLink>
     </MenuItem>
     <Divider sx={{ my: 0.5 }} />
     <MenuItem sx={{ textDecoration: 'none' }}>
-      <StyledNavbarMenuLink to={routes.HomePage}>
+      <StyledLink to={routes.HomePage}>
         <Typography textAlign="center">Foundation</Typography>
-      </StyledNavbarMenuLink>
+      </StyledLink>
     </MenuItem>
   </>
 );

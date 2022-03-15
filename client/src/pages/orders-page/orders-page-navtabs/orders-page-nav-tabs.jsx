@@ -22,10 +22,20 @@ const OrderPageNavTabs = () => {
   };
 
   return (
-    <Grid item lg={7} md={12} sm={12} xs={12}>
-      <Tabs value={value} onChange={handleChange} sx={{ mb: 2 }}>
+    <Grid
+      item
+      lg={7}
+      md={12}
+      sm={12}
+      xs={12}
+    >
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        sx={{ mb: 2 }}
+      >
         <Tab
-          label="MY ORDERS-LOREM IPSUM 1"
+          label="MY ORDERS"
           sx={{
             fontSize: {
               xs: '2.6vh',
@@ -46,10 +56,16 @@ const OrderPageNavTabs = () => {
           }}
         />
       </Tabs>
-      <StyledTabPanel value={value} index={0}>
+      <StyledTabPanel
+        value={value}
+        index={0}
+      >
         <OrdersPageNavTabMyOrders />
       </StyledTabPanel>
-      <StyledTabPanel value={value} index={1}>
+      <StyledTabPanel
+        value={value}
+        index={1}
+      >
         <OrdersPageNavTabPurchaseLatter />
       </StyledTabPanel>
     </Grid>

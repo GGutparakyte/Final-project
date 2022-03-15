@@ -6,7 +6,8 @@ import {
 import React from 'react';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
-import FormButton from '../../../components/partials/buttons/light-button';
+import StyledLink from '../../../components/partials/styled-link';
+import routes from '../../../routing/routes';
 
 const items = [
   {
@@ -28,8 +29,13 @@ const items = [
 ];
 
 const OrdersPageLatestItemsReviewed = () => (
-  <Box sx={{ display: 'flex', width: '100%' }}>
-    <Box sx={{}}>
+  <Box
+    sx={{
+      display: 'flex',
+      width: '100%',
+    }}
+  >
+    <Box>
       <Box sx={{
         display: 'flex',
         flexDirection: 'column',
@@ -46,7 +52,6 @@ const OrdersPageLatestItemsReviewed = () => (
           LATEST ITEMS REVIEWED
         </Typography>
       </Box>
-      {/* cards */}
       <Box sx={{
         m: 'auto',
         mb: '1%',
@@ -55,38 +60,33 @@ const OrdersPageLatestItemsReviewed = () => (
         <Grid container spacing={2} sx={{ display: 'flex' }}>
           {items.map(({ link }) => (
             <Grid item xs={12} sm={6} lg={3} gap={2} key={link}>
-              <Card sx={{
-                width: '100%',
-                height: { xs: '50vw', sm: '25vw', md: '12vw' },
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                boxShadow: '0',
-                borderRadius: '0',
-                position: 'relative',
-              }}
-              >
-                <CardMedia
-                  variant="standard"
-                  component="img"
-                  // height="275px"
-                  // width="296px"
-                  image={link}
-                />
-              </Card>
-              <FormButton
+              <StyledLink
+                to={routes.CatalogPage}
                 sx={{
-                  display: 'flex', m: 'auto', mt: 2,
+                  '&:hover': {
+                    boxShadow: 5,
+                  },
                 }}
               >
-                <Typography sx={{
-                  textAlign: 'center',
-                  fontWeight: 'bold',
+                <Card sx={{
+                  width: '100%',
+                  height: { xs: '50vw', sm: '25vw', md: '12vw' },
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  boxShadow: '0',
+                  borderRadius: '0',
+                  position: 'relative',
                 }}
                 >
-                  Go to Product
-                </Typography>
-              </FormButton>
+
+                  <CardMedia
+                    variant="standard"
+                    component="img"
+                    image={link}
+                  />
+                </Card>
+              </StyledLink>
             </Grid>
           ))}
         </Grid>

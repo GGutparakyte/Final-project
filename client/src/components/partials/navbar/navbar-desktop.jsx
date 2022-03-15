@@ -17,7 +17,7 @@ import NavbarMenuItems from './navbar-menu-items';
 import NavbarAuthMenuItems from './navbar-auth-menu-items';
 import { authSelector } from '../../../store/auth';
 import AuthService from '../../../services/auth-service';
-import StyledNavbarMenuLink from './navbar-menu-link-styled';
+import StyledNavbarMenuLink from '../styled-link';
 
 const NavbarDesktop = ({ pages }) => {
   const anchorRef = useRef();
@@ -39,27 +39,46 @@ const NavbarDesktop = ({ pages }) => {
   return (
     <AppBar
       position="static"
-      sx={{
+      sx={(lightTheme) => ({
         backgroundColor: '#fafafa',
         color: 'black',
         boxShadow: 'none',
-        m: 'auto',
-      }}
+        height: lightTheme.toolbar.height,
+      })}
     >
-      <Toolbar disableGutters sx={{ display: 'flex', justifyContent: 'space-between' }}>
+      <Toolbar
+        disableGutters
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+        }}
+      >
         <Box
           noWrap
           component="div"
           sx={{
             mr: 2,
-            display: { xs: 'none', md: 'flex' },
+            display: {
+              xs: 'none',
+              md: 'flex',
+            },
           }}
         >
-          <Typography sx={{ fontSize: '32px' }}>LOREM</Typography>
+          <Typography
+            sx={{ fontSize: '32px' }}
+          >
+            LOREM
+          </Typography>
         </Box>
-
         {/* Skirta: 'About Us', 'Blog', 'Brands', 'Shop' */}
-        <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+        <Box sx={{
+          display:
+           {
+             xs: 'none',
+             md: 'flex',
+           },
+        }}
+        >
           {pages.map(({ title, linkTo }) => (
             <Button
               key={title}
@@ -78,12 +97,23 @@ const NavbarDesktop = ({ pages }) => {
             </Button>
           ))}
         </Box>
-        <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'flex-end' }}>
-          <PersonIcon onClick={handleOpenMenu} ref={anchorRef} />
+        <Box sx={{
+          flexGrow: 1,
+          display: 'flex',
+          justifyContent: 'flex-end',
+        }}
+        >
+          <PersonIcon
+            onClick={handleOpenMenu}
+            ref={anchorRef}
+          />
           <StyledIconLink
             to="/orders"
           >
-            <Badge badgeContent={1} color="primary">
+            <Badge
+              badgeContent={1}
+              color="primary"
+            >
               <ShoppingCartIcon />
             </Badge>
           </StyledIconLink>

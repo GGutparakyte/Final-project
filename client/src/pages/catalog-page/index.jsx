@@ -27,7 +27,12 @@ const CatalogPage = () => {
   return (
     <>
       <Hero />
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 1 }}>
+      <Box sx={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        mt: 1,
+      }}
+      >
         <CatalogPageFilters />
         <CatalogPageSorting />
       </Box>

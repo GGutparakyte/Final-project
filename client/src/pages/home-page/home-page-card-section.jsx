@@ -9,8 +9,9 @@ import {
   Button,
 } from '@mui/material';
 import styled from '@emotion/styled';
-import StyledNavbarMenuLink from '../../components/partials/navbar/navbar-menu-link-styled';
+import StyledLink from '../../components/partials/styled-link';
 import routes from '../../routing/routes';
+import StyledCategoriesContainer from '../../components/partials/styled-categories-container';
 
 const items = [
   {
@@ -42,42 +43,30 @@ const StyledCardContent = styled(CardContent)(({ theme }) => ({
 
 const CardSection = () => (
   <Box sx={{
-    m: 'auto',
     mb: '1%',
   }}
   >
-    <Box sx={{ display: 'flex', my: '2%' }}>
-      <Box sx={{
-        width: { xs: '30%', md: '40%' }, display: 'flex', flexDirection: 'column', justifyContent: 'center',
-      }}
-      >
-        <Box sx={{ height: '1px', width: '100%', backgroundColor: '#cccccc' }} />
-      </Box>
-      <Box sx={{ width: { xs: '40%', md: '20%' }, textAlign: 'center' }}>
-        <Typography
-          sx={{
-            fontSize: {
-              xs: '3vh',
-              lg: '3.6vh',
-            },
-          }}
-        >
-          Categories
-        </Typography>
-      </Box>
-      <Box sx={{
-        width: { xs: '30%', md: '40%' }, display: 'flex', flexDirection: 'column', justifyContent: 'center',
-      }}
-      >
-        <Box sx={{ height: '1px', width: '100%', backgroundColor: '#cccccc' }} />
-      </Box>
-    </Box>
-    <Grid container spacing={2}>
+    <StyledCategoriesContainer title="Categories" />
+    <Grid
+      container
+      spacing={2}
+    >
       {items.map(({ link, title }) => (
-        <Grid item xs={12} sm={6} lg={3} gap={2} key={link}>
+        <Grid
+          item
+          xs={12}
+          sm={6}
+          lg={3}
+          gap={2}
+          key={link}
+        >
           <Card sx={{
             width: '100%',
-            height: { xs: '50vw', sm: '25vw', md: '12vw' },
+            height: {
+              xs: '50vw',
+              sm: '25vw',
+              md: '12vw',
+            },
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -86,16 +75,19 @@ const CardSection = () => (
             position: 'relative',
           }}
           >
-            {/* Balto fono start */}
             <StyledCardContent
-              sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
             >
               <Button sx={{ textTransform: 'capitalize' }}>
-                <StyledNavbarMenuLink to={routes.CatalogPage}>
+                <StyledLink to={routes.CatalogPage}>
                   <Typography sx={{ fontSize: '1.25rem' }}>
                     {title}
                   </Typography>
-                </StyledNavbarMenuLink>
+                </StyledLink>
               </Button>
               <CardMedia
                 component="div"
@@ -110,7 +102,6 @@ const CardSection = () => (
                 className="child"
               />
             </StyledCardContent>
-            {/* Balto fono end */}
             <CardMedia
               variant="standard"
               component="img"

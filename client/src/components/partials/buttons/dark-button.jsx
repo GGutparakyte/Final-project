@@ -5,11 +5,12 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-const StyledButton = styled(Button)(() => ({
+const StyledButton = styled(Button)(({ theme }) => ({
   borderRadius: '0%',
   height: '6vh',
   width: '14vw',
   padding: 0,
+  backgroundColor: theme.palette.primary.dark,
 }));
 
 const DarkButton = ({ children, sx, ...rest }) => (

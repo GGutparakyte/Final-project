@@ -6,9 +6,9 @@ import { Outlet } from 'react-router-dom';
 import Navbar from '../partials/navbar/index';
 
 const PageLayout = () => (
-  <Container maxWidth="xl" sx={{ height: '100%' }}>
+  <Container maxWidth="xl">
     <Navbar />
-    <Box component="main" sx={{ height: '100%' }}>
+    <Box component="main">
       <Outlet />
     </Box>
   </Container>

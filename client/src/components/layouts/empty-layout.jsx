@@ -5,8 +5,14 @@ import {
 import { Outlet } from 'react-router-dom';
 
 const EmptyLayout = () => (
-  <Container maxWidth="xl" sx={{ height: '100%' }}>
-    <Box component="main" sx={{ height: '100%' }}>
+  <Container
+    maxWidth="xl"
+    sx={{ height: '100%' }}
+  >
+    <Box
+      component="main"
+      sx={{ height: '100%' }}
+    >
       <Outlet />
     </Box>
   </Container>

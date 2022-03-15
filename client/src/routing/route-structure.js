@@ -11,6 +11,7 @@ const routeStructure = [
     childRoutes: [
       { index: true, pageName: 'HomePage' },
       { path: 'catalog', pageName: 'CatalogPage' },
+      { path: 'orders', pageName: 'OrdersPage' },
     ],
   },
   {

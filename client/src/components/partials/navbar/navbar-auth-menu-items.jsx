@@ -5,7 +5,7 @@ import {
   Typography,
 } from '@mui/material';
 import routes from '../../../routing/routes';
-import StyledNavbarMenuLink from './navbar-menu-link-styled';
+import StyledNavbarMenuLink from '../styled-link';
 
 const NavbarAuthMenuItems = ({ handleLogout }) => (
   <>
@@ -15,7 +15,10 @@ const NavbarAuthMenuItems = ({ handleLogout }) => (
       </StyledNavbarMenuLink>
     </MenuItem>
     <Divider sx={{ my: 0.5 }} />
-    <MenuItem sx={{ textDecoration: 'none' }} onClick={handleLogout}>
+    <MenuItem
+      sx={{ textDecoration: 'none' }}
+      onClick={handleLogout}
+    >
       <StyledNavbarMenuLink to={routes.HomePage}>
         <Typography textAlign="center">Logout</Typography>
       </StyledNavbarMenuLink>

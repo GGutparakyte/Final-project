@@ -133,7 +133,7 @@ const AdminPageAddProduct = () => {
             <Typography
               variant="h4"
               sx={{
-                fontWeight: 'bold', mb: 2, m: 'auto',
+                fontWeight: 'bold', mb: 2,
               }}
             >
               Upload Product

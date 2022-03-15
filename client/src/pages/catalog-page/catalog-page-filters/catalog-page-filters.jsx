@@ -91,9 +91,9 @@ const CatalogPageFilters = ({ children }) => {
       </Box>
       {/* Togler start */}
       <Box sx={{
-        display: { xs: 'flex', sm: 'none' },
+        display: { xs: 'flex', 
+        sm: 'none' },
         width: '90%',
-        m: 'auto',
       }}
       >
         <IconButton
@@ -118,7 +118,8 @@ const CatalogPageFilters = ({ children }) => {
           open={Boolean(anchorElNav)}
           onClose={handleCloseNavMenu}
           sx={{
-            display: { xs: 'block', md: 'none' },
+            display: { xs: 'block', 
+            md: 'none' },
           }}
         >
           <Box>

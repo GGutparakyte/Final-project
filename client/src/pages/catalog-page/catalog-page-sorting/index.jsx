@@ -30,7 +30,8 @@ const StyledAutoComplete = styled(Autocomplete)(() => ({
 
 const CatalogPageSorting = () => (
   <Box sx={{
-    display: 'flex', alignItems: 'center',
+    display: 'flex',
+    alignItems: 'center',
   }}
   >
     <StyledAutoComplete
@@ -38,7 +39,11 @@ const CatalogPageSorting = () => (
       renderInput={(params) => <TextField {...params} label="Sorting" />}
       size="large"
       getOptionLabel={(options) => options.title}
-      sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: 1,
+      }}
     >
       <TextField
         select

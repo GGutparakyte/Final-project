@@ -21,10 +21,22 @@ const pagesToggler = [
 
 const Navbar = () => (
   <>
-    <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+    <Box sx={{
+      display: {
+        xs: 'flex',
+        md: 'none',
+      },
+    }}
+    >
       <NavbarToggler pages={pagesToggler} />
     </Box>
-    <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+    <Box sx={{
+      display: {
+        xs: 'none',
+        md: 'flex',
+      },
+    }}
+    >
       <NavbarDesktop pages={pagesDesktop} />
     </Box>
   </>

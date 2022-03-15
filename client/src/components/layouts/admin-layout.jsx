@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import React, { useState } from 'react';
 import {
   Box, Container,
@@ -22,10 +21,19 @@ const AdminLayout = () => {
         height: '100%', p: 0, m: 0,
       }}
     >
-      <AdminPageAddProductAppBar open={open} toggleDrawer={toggleDrawer} />
+      <AdminPageAddProductAppBar
+        open={open}
+        toggleDrawer={toggleDrawer}
+      />
       <Box sx={{ display: 'flex' }}>
-        <AdminPageDrawer open={open} toggleDrawer={toggleDrawer} />
-        <Box component="main" sx={{ width: '100%' }}>
+        <AdminPageDrawer
+          open={open}
+          toggleDrawer={toggleDrawer}
+        />
+        <Box
+          component="main"
+          sx={{ width: '100%' }}
+        >
           <Outlet />
         </Box>
       </Box>

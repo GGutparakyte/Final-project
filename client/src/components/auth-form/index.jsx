@@ -14,7 +14,10 @@ const AuthForm = ({
   isValid,
   isNavigateTo,
 }) => (
-  <Box component="form" onSubmit={onSubmit} sx={{ m: 'auto' }}>
+  <Box
+    component="form"
+    onSubmit={onSubmit}
+  >
     {children}
     <Button disabled={!isValid}>
       {
@@ -23,12 +26,19 @@ const AuthForm = ({
           : title
       }
     </Button>
-    <Box sx={{ textAlign: 'center', textDecoration: 'none' }}>
+    <Box sx={{
+      textAlign: 'center',
+      textDecoration: 'none',
+    }}
+    >
       {isNavigateTo
         ? (
           <Link
             to="/registration"
-            style={{ textDecoration: 'none', color: '#232020' }}
+            style={{
+              textDecoration: 'none',
+              color: '#232020',
+            }}
           >
             New to Lorem? Register
           </Link>
@@ -36,7 +46,10 @@ const AuthForm = ({
         : (
           <Link
             to="/login"
-            style={{ textDecoration: 'none', color: '#232020' }}
+            style={{
+              textDecoration: 'none',
+              color: '#232020',
+            }}
           >
             Already have an account? Login!
           </Link>

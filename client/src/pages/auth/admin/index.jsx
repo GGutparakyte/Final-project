@@ -7,7 +7,7 @@ import Paper from '@mui/material/Paper';
 import LastItemsUploaded from './admin-page-last-items-uploaded';
 import ApiService from '../../../services/api-service';
 // import AdminPageDeleteProduct from './admin-page-delete-product';
-import StyledNavbarMenuLink from '../../../components/partials/navbar/navbar-menu-link-styled';
+import StyledLink from '../../../components/partials/styled-link';
 
 const Dashboard = () => {
   // eslint-disable-next-line no-unused-vars
@@ -74,10 +74,10 @@ const Dashboard = () => {
               width: '100%',
             }}
           >
-            <StyledNavbarMenuLink to="/deleteproduct">
+            <StyledLink to="/deleteproduct">
               Update Product
               {/* <AdminPageDeleteProduct /> */}
-            </StyledNavbarMenuLink>
+            </StyledLink>
           </Paper>
         </Grid>
         {/* Delete product */}
@@ -90,9 +90,9 @@ const Dashboard = () => {
               width: '100%',
             }}
           >
-            <StyledNavbarMenuLink to="/deleteproduct">
+            <StyledLink to="/deleteproduct">
               Update Product
-            </StyledNavbarMenuLink>
+            </StyledLink>
           </Paper>
         </Grid>
         {/* Delete product */}

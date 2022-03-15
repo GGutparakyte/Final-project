@@ -9,6 +9,7 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import FormButton from '../../components/partials/buttons/light-button';
+import StyledCategoriesContainer from '../../components/partials/styled-categories-container';
 
 const StyledCardContent = styled(CardContent)(() => ({
   height: '30vh',
@@ -30,49 +31,7 @@ const CardSection = ({ products, categories }) => (
     {
       categories?.map((category) => (
         <Box key={category.title}>
-          <Box
-            sx={{
-              display: 'flex',
-              mb: '2%',
-              width: '100%',
-            }}
-          >
-            <Box sx={{
-              width: { xs: '30%', md: '40%' },
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-            }}
-            >
-              <Box sx={{
-                height: '1px',
-                width: '100%',
-                backgroundColor: '#cccccc',
-              }}
-              />
-            </Box>
-            <Box sx={{ width: { xs: '40%', md: '20%' }, textAlign: 'center' }}>
-              <Typography
-                sx={{
-                  fontSize: {
-                    lg: '3.8vh',
-                    xs: '3.4vh',
-                  },
-                }}
-              >
-                {category.title}
-              </Typography>
-            </Box>
-            <Box sx={{
-              width: { xs: '30%', md: '40%' },
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-            }}
-            >
-              <Box sx={{ height: '1px', width: '100%', backgroundColor: '#cccccc' }} />
-            </Box>
-          </Box>
+          <StyledCategoriesContainer title={category.title} />
           <Grid
             container
             gap={1}
@@ -137,7 +96,8 @@ const CardSection = ({ products, categories }) => (
                       </Typography>
                       <FormButton
                         sx={{
-                          display: 'flex', m: 'auto', mb: '10%',
+                          display: 'flex',
+                          mb: '4%',
                         }}
                       >
                         <Typography sx={{

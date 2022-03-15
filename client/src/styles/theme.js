@@ -6,6 +6,8 @@ const theme = createTheme({
       main: '#252525',
       light: 'rgba(250,250,250, 0.8)',
       dark: '#000000',
+      lightPink: 'rgb(230 188 150)',
+      hoverLightPink: 'rgba(187, 33, 57, 0.8)',
     },
     secondary: {
       main: '#d2583e',
@@ -33,6 +35,9 @@ export const lightTheme = createTheme(theme, {
   ],
   transitions: {
     easeMe: 'all 0.2s ease-out',
+  },
+  toolbar: {
+    height: 64,
   },
   backgroundColor: '#fafafa',
 });
