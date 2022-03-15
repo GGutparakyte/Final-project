@@ -23,27 +23,25 @@ const AuthForm = ({
           : title
       }
     </Button>
-    {isNavigateTo ? (
-      <Box sx={{ textAlign: 'center', textDecoration: 'none' }}>
-        <Link
-          to="/registration"
-          style={{ textDecoration: 'none', color: '#232020' }}
-        >
-          {' New to Lorem? Register'}
-        </Link>
-      </Box>
-    )
-      : (
-        <Box sx={{ textAlign: 'center', textDecoration: 'none' }}>
+    <Box sx={{ textAlign: 'center', textDecoration: 'none' }}>
+      {isNavigateTo
+        ? (
+          <Link
+            to="/registration"
+            style={{ textDecoration: 'none', color: '#232020' }}
+          >
+            New to Lorem? Register
+          </Link>
+        )
+        : (
           <Link
             to="/login"
             style={{ textDecoration: 'none', color: '#232020' }}
           >
             Already have an account? Login!
           </Link>
-        </Box>
-      )}
-
+        )}
+    </Box>
   </Box>
 );
 
