@@ -1,7 +1,7 @@
 # About the project
 
-* This is the final project created during the JavaScript studies to apply theoretical knowledge along with practice
-* Project is still in progress
+This is the final project created during the JavaScript studies to apply theoretical knowledge along with practice
+Project is still in progress
 
 # Required programs to run project
 
