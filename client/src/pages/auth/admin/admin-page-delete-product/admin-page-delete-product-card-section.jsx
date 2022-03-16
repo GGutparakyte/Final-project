@@ -28,7 +28,10 @@ const AdminPageDeleteProductCardSection = ({ products, categories, onDelete }) =
       {
         categories?.map((category) => (
           <>
-            <StyledCategoriesContainer title={category.title} />
+            <StyledCategoriesContainer
+              title={category.title}
+              key={category}
+            />
             <Grid
               container
               gap={1}

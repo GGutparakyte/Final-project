@@ -4,7 +4,6 @@ import {
 } from '@mui/material';
 import AdminPageDeleteProductCardSection from './admin-page-delete-product-card-section';
 import ApiService from '../../../../services/api-service';
-import CatalogPageFilters from '../../../catalog-page/catalog-page-filters/catalog-page-filters';
 
 const AdminPageDeleteProduct = () => {
   const [products, setProducts] = useState([]);
@@ -32,22 +31,15 @@ const AdminPageDeleteProduct = () => {
     <Box sx={{
       m: 'auto',
       width: '90%',
+      mt: 10,
     }}
     >
-      <Box sx={{
-        mt: 10,
-        mb: 2,
-      }}
-      >
-        <CatalogPageFilters />
-      </Box>
       <AdminPageDeleteProductCardSection
         products={products}
         categories={categories}
         loading={loading}
         onDelete={deleteProduct}
       />
-
     </Box>
   );
 };
