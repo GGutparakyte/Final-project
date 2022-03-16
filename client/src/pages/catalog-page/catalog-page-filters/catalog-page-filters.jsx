@@ -28,7 +28,6 @@ const StyledAutoComplete = styled(Autocomplete)(() => ({
 
 const CatalogPageFilters = () => {
   const { filters, handleFilterChange } = useContext(ProductContext);
-  console.log(filters);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const openDrawer = () => setDrawerOpen(true);

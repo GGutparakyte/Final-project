@@ -11,7 +11,7 @@ const AdminProtector = ({ children }) => {
     return <Navigate to={routes.LoginPage} />;
   }
 
-  if (auth.user.role !== 'ADMIN') { // jeigu jungiasi ne admin
+  if (auth.user.role !== 'ADMIN') {
     return <Navigate to={routes.HomePage} />;
   }
 

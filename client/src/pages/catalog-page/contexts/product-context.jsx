@@ -107,8 +107,6 @@ const ProductProvider = ({ children }) => {
   // };
 
   const handleFilterChange = (selectedOption, filterName) => {
-    console.log('selectedOption', selectedOption);
-    console.log('filterName', filterName);
     const newFilter = [...filters[filterName]];
     const foundSelectedOption = newFilter.find((x) => x.id === selectedOption.id);
     if (!foundSelectedOption.selected) {
@@ -143,7 +141,6 @@ const ProductProvider = ({ children }) => {
     handleFilterChange,
   }), [products, filters]);
   // [] atsinaujins funkcija tada kai keisis produktai arba filters;
-  console.log('filters', filters);
 
   return (
     <ProductContext.Provider value={providerValue}>

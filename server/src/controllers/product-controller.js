@@ -12,7 +12,7 @@ const getProductsPaginated = async (req, res) => {
 
 const getProducts = async (req, res) => {
   const ProductDocs = await ProductModel
-    .find() //randa visus duomenis pagal si request
+    .find()
     .populate('brand')
     .populate('category')
     .populate('color')

@@ -24,7 +24,6 @@ const theme = createTheme({
       'sans-serif',
     ].join(','),
   },
-
 });
 
 export const lightTheme = createTheme(theme, {

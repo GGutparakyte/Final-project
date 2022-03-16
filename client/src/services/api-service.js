@@ -33,10 +33,10 @@ const getCategories = async () => {
     return error;
   }
 };
-//  (?) optional sąlyga. gali būti products=lipstics (kategorijos id)., products=foundation
+
 const getProducts = async (params) => {
   const baseUrl = 'http://localhost:5000/api/products?';
-  const generatedParams = appendUrlParams(baseUrl, params); // funkcija iš url helpers
+  const generatedParams = appendUrlParams(baseUrl, params);
   try {
     const products = await axios.get(generatedParams);
     return products.data;

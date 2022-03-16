@@ -10,11 +10,10 @@ const authRouter = require('./routes/auth-router');
 const userRouter = require('./routes/user-router');
 
 //product routeriai : 
-const productRouter = require('./routes/product-router'); //! 1 
+const productRouter = require('./routes/product-router');
 const categoryRouter = require('./routes/category-router');
-const brandRouter = require('./routes/brand-router'); //! 3
-const colorRouter = require('./routes/color-router'); //! 4
-
+const brandRouter = require('./routes/brand-router');
+const colorRouter = require('./routes/color-router');
 const server = express();
 const {
   SERVER_DOMAIN,
@@ -39,10 +38,10 @@ server.use('/api/auth', authRouter);
 server.use('/api/users', userRouter);
 
 // Product response handlers
-server.use('/api/products', productRouter); //! 1 
+server.use('/api/products', productRouter);
 server.use('/api/categories', categoryRouter);
-server.use('/api/brands', brandRouter); //! 3
-server.use('/api/colors', colorRouter); //! 4
+server.use('/api/brands', brandRouter);
+server.use('/api/colors', colorRouter);
 server.use('/api/images', imageRouter);
 
 

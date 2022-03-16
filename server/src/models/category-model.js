@@ -11,7 +11,7 @@ const categorySchema = new Schema({
   timestamps: true,
 });
 
-categorySchema.plugin(uniqueValidator); //neleidžia kurti dviejų kategorijų
+categorySchema.plugin(uniqueValidator);
 
 const CategoryModel = Mongoose.model('Category', categorySchema);
 

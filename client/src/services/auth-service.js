@@ -3,7 +3,6 @@ import SessionService from './session-service';
 import reduxStore from '../store/index';
 import { login, logout, authFailed } from '../store/auth';
 
-// Singleton pattern - only one object of a class
 const AuthService = new (class AuthService {
   constructor() {
     const token = SessionService.get('auth_token');

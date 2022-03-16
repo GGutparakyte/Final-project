@@ -10,7 +10,6 @@ const authConfigureMiddleware = require('../middlewares/auth-congifure-middlewar
 const router = express.Router();
 router.use(authConfigureMiddleware);
 
-
 // POST - /api/auth/register
 router.post('/', auth);
 

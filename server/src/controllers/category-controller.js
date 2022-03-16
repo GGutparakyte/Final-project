@@ -2,10 +2,8 @@ const CategoryModel = require('../models/category-model');
 const CategoryViewModel = require('../view-models/category-view-model');
 
 const getCategories = async (req, res) => {
-  //sulauksiu kol CategoryModels suras visas categories
   const CategoryDocs = await CategoryModel.find();
   console.log(CategoryDocs);
-  //eis per visas kategorijas ir is visu gamins category view models
   const Categories = CategoryDocs.map(Category => new CategoryViewModel(Category));
   res.status(200).json(Categories);
 };

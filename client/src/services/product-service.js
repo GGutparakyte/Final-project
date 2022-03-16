@@ -17,7 +17,7 @@ const ProductService = new (class ProductService {
     });
   }
 
-  async getProducts(page, limit, order) { //!
+  async getProducts(page, limit, order) {
     try {
       const { data } = await this.requester.get('/', { params: { page, limit, order } });
       return data;
