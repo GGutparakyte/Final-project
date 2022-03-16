@@ -62,28 +62,6 @@ const CatalogPageFilters = () => {
               'category',
             )}
           />
-          {/* <StyledAutoComplete
-            name="brand"
-            filterOptions={filters.brand}
-            renderInput={(params) => <TextField {...params} label="Brand" />}
-            size="large"
-            getOptionLabel={(options) => options.title}
-            onChange={(selectedOptions, filterName) => handleFilterChange(
-              selectedOptions,
-              filterName,
-            )}
-          />
-          <StyledAutoComplete
-            name="color"
-            filterOptions={filters.color}
-            renderInput={(params) => <TextField {...params} label="Color" />}
-            size="large"
-            getOptionLabel={(options) => options.title}
-            onChange={(selectedOptions, filterName) => handleFilterChange(
-              selectedOptions,
-              filterName,
-            )}
-          /> */}
         </Box>
       </Box>
       {/* Togler start */}
