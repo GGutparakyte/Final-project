@@ -1,39 +1,38 @@
-/* eslint-disable */
 import React, { useContext } from 'react';
 import {
   Box,
   IconButton,
   Menu,
-  // TextField,
-  // Autocomplete,
+  TextField,
+  Autocomplete,
 } from '@mui/material';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
-// import { styled } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import DrawerList from './catalog-page-mobile-drawer/catalog-page-drawer-list';
-import ProductProvider from '../contexts/product-context';
+import { ProductContext } from '../contexts/product-context';
 
-// const StyledAutoComplete = styled(Autocomplete)(() => ({
-//   width: 130,
-//   padding: 0,
+const StyledAutoComplete = styled(Autocomplete)(() => ({
+  width: 130,
+  padding: 0,
 
-//   '& .MuiAutocomplete-inputRoot': {
-//     border: 'none',
-//     color: ' black',
-//     p: 0,
-//     '& fieldset': {
-//       border: 'none',
-//       borderRadius: '0',
-//     },
-//   },
-// }));
+  '& .MuiAutocomplete-inputRoot': {
+    border: 'none',
+    color: ' black',
+    p: 0,
+    '& fieldset': {
+      border: 'none',
+      borderRadius: '0',
+    },
+  },
+}));
 
-const CatalogPageFilters = ({ children }) => {
-  // const { filters, handleFilterChange } = useContext(ProductProvider);
+const CatalogPageFilters = () => {
+  const { filters, handleFilterChange } = useContext(ProductContext);
+  console.log(filters);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const openDrawer = () => setDrawerOpen(true);
   const closeDrawer = () => setDrawerOpen(false);
-
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
@@ -41,7 +40,7 @@ const CatalogPageFilters = ({ children }) => {
     setAnchorElNav(event.currentTarget);
   };
   return (
-    <ProductProvider>
+    <>
       <Box sx={{
         width: '100%',
         m: 'auto',
@@ -53,18 +52,18 @@ const CatalogPageFilters = ({ children }) => {
         <Box
           sx={{ display: { xs: 'none', sm: 'flex' } }}
         >
-          {/* <StyledAutoComplete
+          <StyledAutoComplete
             name="category"
-            filterOptions={filters.category}
+            options={filters.category}
             renderInput={(params) => <TextField {...params} label="Category" />}
             size="large"
             getOptionLabel={(options) => options.title}
-            onChange={(selectedOptions, filterName) => handleFilterChange(
+            onChange={(_, selectedOptions) => handleFilterChange(
               selectedOptions,
-              filterName,
+              'category',
             )}
           />
-          <StyledAutoComplete
+          {/* <StyledAutoComplete
             name="brand"
             filterOptions={filters.brand}
             renderInput={(params) => <TextField {...params} label="Brand" />}
@@ -86,13 +85,14 @@ const CatalogPageFilters = ({ children }) => {
               filterName,
             )}
           /> */}
-          {/* {children} */}
         </Box>
       </Box>
       {/* Togler start */}
       <Box sx={{
-        display: { xs: 'flex', 
-        sm: 'none' },
+        display: {
+          xs: 'flex',
+          sm: 'none',
+        },
         width: '90%',
       }}
       >
@@ -118,18 +118,19 @@ const CatalogPageFilters = ({ children }) => {
           open={Boolean(anchorElNav)}
           onClose={handleCloseNavMenu}
           sx={{
-            display: { xs: 'block', 
-            md: 'none' },
+            display: {
+              xs: 'block',
+              md: 'none',
+            },
           }}
         >
           <Box>
             <DrawerList drawerStatus={drawerOpen} open={openDrawer} close={closeDrawer} />
           </Box>
-          {children}
         </Menu>
       </Box>
       {/* Togler end */}
-    </ProductProvider>
+    </>
   );
 };
 export default CatalogPageFilters;

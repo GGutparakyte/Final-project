@@ -1,9 +1,9 @@
-// 1. produktu parfetchinimas
-// 2. po filtru parsiuntimo, reikia, kad filtrai būtų paiimami pagal URL
-
+/* eslint-disable no-unused-vars */
 import React, {
   useState,
-  useEffect, createContext, useMemo,
+  useEffect,
+  createContext,
+  useMemo,
 } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { createUrlParamObj } from '../../../helpers/url-helpers';
@@ -15,11 +15,9 @@ const initialFilters = { category: [] }; // category: [], brand: []
 export const ProductContext = createContext();
 
 const ProductProvider = ({ children }) => {
-  // eslint-disable-next-line no-unused-vars
   const [searchParams, setSearchParams] = useSearchParams();
   const [products, setProducts] = useState(initialProducts);
   const [filters, setFilters] = useState(initialFilters);
-  console.log('filters:', filters);
 
   const filtersArrToObj = ([
     category,
@@ -35,8 +33,11 @@ const ProductProvider = ({ children }) => {
     (async () => {
       const fetchedFilters = await ApiService.getCategories();
       // jeigu visiems, tai su promiseAll
-      console.log('fetched', fetchedFilters);
       try {
+        // verciam i objekta
+        const filterName = 'category';
+        const filterObject = {};
+        filterObject[filterName] = fetchedFilters;
         // urlParams - iš esamų url parametrų, funkcija sukuria objektų parametrą category=lipsticks
         const urlParams = createUrlParamObj(searchParams);
         // iš esamų urlParams reikia sužymėti pasirinktas kategorijas
@@ -47,12 +48,12 @@ const ProductProvider = ({ children }) => {
         urlParamsEntriesArray.forEach(([name, value]) => {
           const valuesArray = [].concat(value); // concat sujungia visas reikšmes į vieną masyvą
           valuesArray.forEach((id) => {
-            if (fetchedFilters[name]) { // jeigu parsiusti filtrai nuo kategorijos
+            if (filterObject[name]) { // jeigu parsiusti filtrai nuo kategorijos
               // ar esantys id yra tokie patys kaip perduoti id
               // ar sitas id esantis fetched filteriuose yra lygtus id suformuotuose parametru id
-              // fetchedFilters[name]- paimamas name, kuris yra musu =>
+              // filterObject[name]- paimamas name, kuris yra musu =>
               // => suformuotame objekte (categories, brand)
-              const selectedFilterOption = fetchedFilters[name].find((x) => x.id === id);
+              const selectedFilterOption = filterObject[name].find((x) => x.id === id);
               filterOptionsFromUrl.push(selectedFilterOption);
             }
           });
@@ -61,14 +62,14 @@ const ProductProvider = ({ children }) => {
         const filterOptionsIds = filterOptionsFromUrl.map(({ id }) => id);
         // ušžymimi options iš URL, (kurie pasirinkti, kurie ne,) pagal tai koks yra URL
         // imami visi filtrai, performajuomi filtrai, kad jie turetu savybe checked
-        const checkedFilterOptionsFromUrl = Object.entries(fetchedFilters)
+        const checkedFilterOptionsFromUrl = Object.entries(filterObject)
           .map(([name, value]) => ({
             [name]: value.map((x) => {
-              // jeigu sitame masyve is Ids jeigu yra toks elementas, kurį turi parfetchinti filtrai
+            // jeigu sitame masyve is Ids jeigu yra toks elementas, kurį turi parfetchinti filtrai
               if (filterOptionsIds.indexOf(x.id !== -1)) {
                 return (
                   { ...x, selected: true }
-                  // išskleidžiam, ir jam pridėsime, kad jis yra selected
+                // išskleidžiam, ir jam pridėsime, kad jis yra selected
                 );
               }
               return (
@@ -76,7 +77,6 @@ const ProductProvider = ({ children }) => {
               );
             }),
           }));
-
         const syncedFiltersValues = checkedFilterOptionsFromUrl
           .map((filter) => Object.values(filter))
           .flat();
@@ -87,6 +87,41 @@ const ProductProvider = ({ children }) => {
       }
     })();
   }, []);
+
+  // const updateUrlParamsWithNewFilters = (newFilters) => {
+  //   const newValuesArr = [];
+  //   Object.entries(newFilters).forEach(([name, value]) => {
+  //     searchParams.delete(name);
+  //     newValuesArr.push(value.map((obj) => ({ ...obj, name })));
+  //   });
+  //   const transformedValues = newValuesArr
+  //     .flat()
+  //     .filter((obj) => obj.selected)
+  //     .map(({ id, name }) => ({
+  //       key: name,
+  //       value: id,
+  //     }));
+
+  //   const newUrlParams = createUrlParamObj(searchParams, transformedValues);
+  //   setSearchParams(newUrlParams);
+  // };
+
+  const handleFilterChange = (selectedOption, filterName) => {
+    console.log('selectedOption', selectedOption);
+    console.log('filterName', filterName);
+    const newFilter = [...filters[filterName]];
+    const foundSelectedOption = newFilter.find((x) => x.id === selectedOption.id);
+    if (!foundSelectedOption.selected) {
+      foundSelectedOption.selected = true;
+    } else { foundSelectedOption.selected = false; }
+
+    const newFilters = {
+      ...filters,
+      [filterName]: newFilter,
+    };
+    setFilters(newFilters);
+    // updateUrlParamsWithNewFilters(newFilters);
+  };
 
   // gauname produktus
   useEffect(() => {
@@ -102,46 +137,13 @@ const ProductProvider = ({ children }) => {
   }, [searchParams]);
   // []-jeigu tušti, funkcija įsivykdis kai uzsikraus komponentai
   // jeigu irasai funkcija, isivykdis funkcija kai search params pasikeičia
-
-  const updateUrlParamsWithNewFilters = (newFilters) => {
-    const newValuesArr = [];
-    Object.entries(newFilters).forEach(([filterName, valueArr]) => {
-      searchParams.delete(filterName);
-      newValuesArr.push(valueArr.map((obj) => ({ ...obj, filterName })));
-    });
-    const transformedValues = newValuesArr
-      .flat()
-      .filter((obj) => obj.selected)
-      .map(({ id, filterName }) => ({
-        key: filterName,
-        value: id,
-      }));
-
-    const newUrlParams = createUrlParamObj(searchParams, transformedValues);
-    setSearchParams(newUrlParams);
-  };
-
-  const handleFilterChange = (selectedOption, filterName) => {
-    const newFilter = [...filters[filterName]];
-    const foundSelectedOption = newFilter.find((x) => x.id === selectedOption.id);
-    if (!foundSelectedOption.selected) {
-      foundSelectedOption.selected = true;
-    } else { foundSelectedOption.selected = false; }
-
-    const newFilters = {
-      ...filters,
-      [filterName]: newFilter,
-    };
-    setFilters(newFilters);
-    updateUrlParamsWithNewFilters(newFilters);
-  };
-
   const providerValue = useMemo(() => ({
-    filters,
     products,
+    filters,
     handleFilterChange,
-  }), [filters, products]);
+  }), [products, filters]);
   // [] atsinaujins funkcija tada kai keisis produktai arba filters;
+  console.log('filters', filters);
 
   return (
     <ProductContext.Provider value={providerValue}>
