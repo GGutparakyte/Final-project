@@ -1,7 +1,7 @@
 # About the project
 
-This is the final project created during the JavaScript studies to apply theoretical knowledge along with practice
-Project is still in progress
+This is the final project created during the JavaScript studies to apply theoretical knowledge along with practice. Project is still in progress
+
 
 # Required programs to run project
 
@@ -9,11 +9,11 @@ Project is still in progress
 
 # Browser used
 
-*Platform:  Chrome on Windows
+* Platform:  Chrome on Windows
 
-*Version: 99.0.4844.51
+* Version: 99.0.4844.51
 
-*Release Date: 2022-03-08
+* Release Date: 2022-03-08
 
 # Client side
 ## Navigate to client side
